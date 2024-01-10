@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+      <title>
+        搭建一台 NAS ::
+        Horizon Blog Neo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="⏩这是一篇持续更新中的文章⏩ Horizon NAS # 其实这是去年冬天的事情了, 当时刚打完美亚杯, 拿到了点儿奖金, 正好外置的硬盘挂学校 BT 已经力不从心了 (马上就被"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://horizonchaser.github.io/neo/posts/%E6%90%AD%E5%BB%BA%E4%B8%80%E5%8F%B0-nas/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/neo/css/style.css" />
+
+<link rel="stylesheet" href="https://horizonchaser.github.io/neo/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://horizonchaser.github.io/neo/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://horizonchaser.github.io/neo/img/favicon.png" />
+
+
+<link href="/neo/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/neo/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/neo/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/neo/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/neo/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/neo/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="搭建一台 NAS"/>
+<meta name="twitter:description" content="捡垃圾搭建了一台 NAS, 顺便当作服务器. 这台机器最新的东西大概就是 CPU 风扇和电源了, 别的都是二手的."/>
+
+
+
+<meta property="og:title" content="搭建一台 NAS" />
+<meta property="og:description" content="捡垃圾搭建了一台 NAS, 顺便当作服务器. 这台机器最新的东西大概就是 CPU 风扇和电源了, 别的都是二手的." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://horizonchaser.github.io/neo/posts/%E6%90%AD%E5%BB%BA%E4%B8%80%E5%8F%B0-nas/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-09T17:11:21+00:00" />
+<meta property="article:modified_time" content="2024-01-10T22:18:53+08:00" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Horizon Blog Neo</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/neo/index.xml">RSS</a></li>
+        
+      
+        
+          <li><a href="/neo/about/">关于</a></li>
+        
+      
+        
+          <li><a href="/neo/links/">友链</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/neo/index.xml">RSS</a></li>
+      
+    
+      
+        <li><a href="/neo/about/">关于</a></li>
+      
+    
+      
+        <li><a href="/neo/links/">友链</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">搭建一台 NAS</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2023-04-09
+        </time>
+
+        
+          
+            
+
+
+  
+    <span class="post-moddate">
+      (最后修改于：
+      2024-01-10)
+    </span>
+  
+
+
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://horizonchaser.github.io/neo/tags/nas/">#NAS</a>&nbsp;
+        
+          <a href="https://horizonchaser.github.io/neo/tags/%E6%8D%A1%E5%9E%83%E5%9C%BE/">#捡垃圾</a>&nbsp;
+        
+          <a href="https://horizonchaser.github.io/neo/tags/linux/">#Linux</a>&nbsp;
+        
+          <a href="https://horizonchaser.github.io/neo/tags/ubuntu/">#Ubuntu</a>&nbsp;
+        
+          <a href="https://horizonchaser.github.io/neo/tags/server/">#Server</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <blockquote>
+<p><strong>⏩这是一篇持续更新中的文章⏩</strong></p>
+</blockquote>
+<h1 id="horizon-nas">
+  Horizon NAS
+  <a href="#horizon-nas" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p>其实这是去年冬天的事情了, 当时刚打完美亚杯, 拿到了点儿奖金, 正好外置的硬盘挂学校 BT 已经力不从心了 (马上就被塞满力), 于是就&hellip;</p>
+<p>有了这台百元级 NAS 的 <del>(捡垃圾)</del> 计划! (实际是五百还是六百来着)</p>
+<p>言归正传, 实际上当时选机箱和主板还是折腾了挺长时间的 (主要是 17x19 的, 有足够 SATA 接口并且还自带千兆网卡的板子真的不多), 写篇文章记录一下</p>
+<p><del>顺便升级一下博客的依赖, 大半年没动过了, 都快忘了还有这个东西了 (笑)</del></p>
+<h2 id="需求确定">
+  需求确定
+  <a href="#%e9%9c%80%e6%b1%82%e7%a1%ae%e5%ae%9a" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h3 id="软件">
+  软件
+  <a href="#%e8%bd%af%e4%bb%b6" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>在开始之前, 咱看了很多家庭/个人 NAS 组建相关的文章, 基本都是花里胡哨地作为家里的流媒体中心, 配上 emby/plex 之类软件的和自动下载海报的刮削器, 然后得到一个很炫酷的海报墙&hellip; 不是说这个不好, 只是咱的 NAS 也就一个人用, 实在用不上这么复杂的功能.</p>
+<p>总之, 大概只有以下的功能是核心:</p>
+<ul>
+<li>作为 BT 下载器</li>
+<li>作为 SAMBA / NFS 服务器, 做好文件分享</li>
+<li>支持 Docker, 偶尔跑跑其他服务</li>
+</ul>
+<p>以下都是亲自测试后的结果.</p>
+<p>为什么不选择黑群晖:</p>
+<ul>
+<li>安装/升级麻烦, 得固定插个引导U盘
+<ul>
+<li>不小心升级了系统可能没了</li>
+</ul>
+</li>
+<li>新版群晖认不到硬盘位, 不想装老版 (太丑辣.jpg)</li>
+<li>软件少, Docker 受限 (下个 Transmission 害得折腾, 至于 qbittorrent, 加油吧)</li>
+<li>群晖自己的文件系统可能不好修复 (虽然基于 Btrfs, 但是群晖貌似有魔改)</li>
+<li>总感觉群晖的图形界面卡卡的 (也许是个人因素吧)</li>
+</ul>
+<p>为什么不选择 TrueNAS:</p>
+<ul>
+<li>TrueNAS 本身即是一个应用, 不允许你自己手动装其他软件</li>
+<li>Docker 支持有限</li>
+</ul>
+<p>TrueNAS 是一个很好的 NAS OS, 但不适合作为服务器.</p>
+<p>综上, 选择 Ubuntu Server 22.04 LTS 作为系统, 没有也不需要图形界面, 还能降低性能需求 - 反正都在一个内网下, 想要干什么直接 SSH 过去就好, 平时不用管</p>
+<h3 id="硬件">
+  硬件
+  <a href="#%e7%a1%ac%e4%bb%b6" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p>硬件方面的选择比软件可麻烦太多了&hellip; 虽然软件尝试了不少, 但是硬件就没这个条件了</p>
+<p>首先是机箱, 考虑到宿舍一共也没多大地方, 机架式的就免了 (梦想破灭.jpg), 长宽高都控制在35cm以下最好, 同时至少支持 4 个 3.5&rsquo; SATA 硬盘位</p>
+<p>找了半天, 找到一个基本满足上述限制的机箱: 惠普的 Gen 7 MicroServer 机箱, 体积很小, 带四个硬盘屉, 各方面算是满足要求</p>
+<p>这个机箱的主板是底置的, 硬盘在主板正上方排列放置, 所以机箱整体接近一个立方体. 由于它本质上是惠普自己定制的机箱, 因此背板的扩展卡槽位和主板的螺丝位置和普通的主板并不通用. 好在万能的淘宝商家总有办法, 他们直接把机箱的背板按照正常主板的需求切割好; 至于螺丝位置, 则设计了一个托盘用来转接 (果然绝大多数问题都能通过加一层解决啊&hellip;).</p>
+<p>当然, <strong>这机箱是二手的</strong> (N 手也说不定).</p>
+<p>机箱选定之后, 主板也就只能在 17x19 的 ITX 主板里选了. 找了半天, 集成 CPU 的主板基本都是要大一点的 (而且 CPU 还不能换), 所以最后还是选了磐石至尊的 B85 ITX 的板子. 寨板就寨板吧, 他家至少是有做服务器的, 咱这没什么负载的应该问题不大 (当然了, B85 的板子早就停产了, 至于为啥是全新的 &ndash; PCB 是新的, 南桥可不一定是, <strong>主板整体就算二手吧</strong>)</p>
+<p>硬盘没什么好说的, 这预算也只能选<strong>二手机械盘</strong>. 正好现在手头这块儿西数的紫盘 (4T 的 WD40EJRX)给我留下了很不错的印象 (速度还行 &amp;&amp; 声音很小, 完全听不见, 毕竟是 5400 RPM 的监控盘), 那就上两块儿 4T 紫盘吧! WD40EJRX 的 OEM 版本是 WD40PURX, 那就它了!</p>
+<p><strong>事实证明, 这个是整个选型中最大的错误. 问题甚至不完全在型号上.</strong></p>
+<p>系统盘方面, 主板有个 M.2 盘位, 那就傲腾 16G 走起, 反正数据在机械盘上, 16G 妥妥够用. 当然, 这条 <strong>M.2 固态也是拆机二手的</strong>, 不过傲腾的寿命极长, 有点写入也问题不大.</p>
+<p>CPU 选择了 G3250, 因为这家的 G3260 正好无货了&hellip; 内存则是一条威刚的 4G DDR3 1600MHz. 不用想了, <strong>CPU 和内存也都是二手的</strong>.</p>
+<p>有意思的是, 我选的 G3250, 店家发过来的是一颗巨脏的 G3260&hellip;. 大概咱是赚了吧 (也许).</p>
+<p>风扇方面, 这个 CPU 的发热量其实被动散热都够了, 随便一个散热器都够, 不过高度是个大问题&hellip; 由于主板在最下方, 上方距离硬盘位只有大概不到 30mm 的间距, 所以还得选个超薄的 &ndash; 结果就是 CPU 散热器比 CPU 还贵. 考虑到硬盘的散热问题, 额外加了个 12cm 的机箱风扇. 这<strong>俩风扇倒都是一手的.</strong></p>
+<p>电源方面, 250W 的全汉小 1U 电源就完全够用了. 咱也<strong>不知道这电源是不是全新的, 就算是吧</strong>.</p>
+<p>由于机箱不带背板, 因此得用足够长的 SATA 线接到主板上. 后来, 主板上方极为有限的高度, 加上垂直于主板的 SATA 接口导致了一次事故.</p>
+<h3 id="总结">
+  总结
+  <a href="#%e6%80%bb%e7%bb%93" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>组件</strong></th>
+<th style="text-align:center"><strong>型号</strong></th>
+<th style="text-align:center"><strong>价格</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>OS</strong></td>
+<td style="text-align:center">Ubuntu Server 22.04 LTS</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>主板</strong></td>
+<td style="text-align:center">磐石至尊 B85</td>
+<td style="text-align:center">245</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>CPU</strong></td>
+<td style="text-align:center">Intel G3250</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>固态硬盘</strong></td>
+<td style="text-align:center">傲腾 16G</td>
+<td style="text-align:center">28</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>CPU散热器</strong></td>
+<td style="text-align:center">16mm高 全铝</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>机箱风扇</strong></td>
+<td style="text-align:center">航嘉清风 12cm 无光</td>
+<td style="text-align:center">9.9</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>电源</strong></td>
+<td style="text-align:center">全汉小 1U 250W</td>
+<td style="text-align:center">62</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>内存</strong></td>
+<td style="text-align:center">威刚 DDR3 4G</td>
+<td style="text-align:center">30.9</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>机箱</strong></td>
+<td style="text-align:center">HP Gen7</td>
+<td style="text-align:center">140</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>总价</strong></td>
+<td style="text-align:center"><strong>不计硬盘</strong></td>
+<td style="text-align:center">552.8</td>
+</tr>
+</tbody>
+</table>
+<p>不算硬盘 &lt;600, 算是百元级吧 (笑)</p>
+<h2 id="装机">
+  装机
+  <a href="#%e8%a3%85%e6%9c%ba" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>这个机箱装机还是比较艰难的, 主要是由于硬盘位置会挡住主板的接线. 而且主板上方的高度很有限, 只能拿两根手指捏着线往下压&hellip;</p>
+<p>总之大体的流程是先把 CPU &amp; 散热器, 内存, 以及固态什么的先装在主板上, 然后在外面接上电源看看能不能亮机. 如果能的话, 再装到机箱里.</p>
+<p>装机的顺序大致是先主板, 然后电源, 接电源线, 然后硬盘, 最后接 SATA 数据线. <del>等装完你就练好了二指禅 (不是</del></p>
+<p><img src="https://s2.loli.net/2023/04/09/bw4ZX9mcVQrfp3a.png" alt="CPU"></p>
+<blockquote>
+<p>装好了 CPU</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/04/09/GEMtJn71x6YsD4i.png" alt="最小系统"></p>
+<blockquote>
+<p>装上内存和散热器, 从此 CPU 就被永远压在下面了</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/04/09/jKoMpqeNsBFcE7C.png" alt="亮机测试"></p>
+<blockquote>
+<p>亮机测试, 一次点亮</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/04/09/kqGjYCQbXDI9h8s.png" alt="正面"></p>
+<blockquote>
+<p>机箱正面图, 可以看到空间实在是紧凑</p>
+</blockquote>
+<h2 id="配置">
+  配置
+  <a href="#%e9%85%8d%e7%bd%ae" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p>配置也没什么好说的, 主要就是 SAMBA 服务器和 qbittorrent-nox, 换源什么的都是常规操作, 注意权限即可</p>
+<h2 id="用户兼开发兼运维体验">
+  用户兼开发兼运维体验
+  <a href="#%e7%94%a8%e6%88%b7%e5%85%bc%e5%bc%80%e5%8f%91%e5%85%bc%e8%bf%90%e7%bb%b4%e4%bd%93%e9%aa%8c" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<p><img src="https://s2.loli.net/2023/04/09/D6gM4TqWXYnyjpv.png" alt="ruler on server"></p>
+<blockquote>
+<p>可以看到, 机箱占地空间没比主板本身大多少</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/04/09/zmOeHYUwgCXGPfx.png" alt="on table"></p>
+<blockquote>
+<p>放到桌面刚刚好, 边上那个黑盒子就是咱的外置硬盘盒</p>
+</blockquote>
+<p>整体体验还不错, Ubuntu Server 本身很稳定, 各部件发热也很低所以也几乎听不到风扇声</p>
+<p>但是, 硬盘有话要说: 这两块 <strong>WD40PURX</strong> 虽然是 5400RPM 的 EJRX 的 OEM 版本, 但它们<strong>是 7200 RPM 的</strong>!</p>
+<p>特别的, 其中一块硬盘的声音明显比另一块要大, 而且是低频的嗡嗡声, 在这个距离下降噪耳机已经无能为力了, 已经是不可能放到桌面日用的程度了.</p>
+<p>所以我把它扔到了桌子下面. 配合硬盘定时休眠, 这下就清净多了.</p>
+<p><img src="https://s2.loli.net/2023/04/09/3DWRdk5I8bLCJ2p.png" alt="neofetch output"></p>
+<h2 id="迄今为止的事故">
+  迄今为止的事故
+  <a href="#%e8%bf%84%e4%bb%8a%e4%b8%ba%e6%ad%a2%e7%9a%84%e4%ba%8b%e6%95%85" class="h-anchor" aria-hidden="true">#</a>
+</h2>
+<h3 id="202302-主板-sata-接口脱落">
+  2023/02 主板 SATA 接口脱落
+  <a href="#202302-%e4%b8%bb%e6%9d%bf-sata-%e6%8e%a5%e5%8f%a3%e8%84%b1%e8%90%bd" class="h-anchor" aria-hidden="true">#</a>
+</h3>
+<p><img src="https://s2.loli.net/2023/04/10/lwt7zc5DJdyBrhK.png" alt="damaged SATA slot"></p>
+<p>如前所述, 由于空间有限, SATA 线是弯折了个直角插到主板上的, 所以在某次搬动带来的震动之后&hellip;</p>
+<p>主板的 SATA 接口脱落了! 而由于开机少了块硬盘, Ubuntu 自动进了恢复模式 (我也不知道怎么说, 总之就类似 grub 的 rescue).</p>
+<p>最后把硬盘接到其他空闲的接口就暂时解决了. 至于脱落了的接口, 等有时间了再看看怎么装回去吧&hellip;</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >阅读其它文章</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://horizonchaser.github.io/neo/posts/%E4%BD%A0%E5%A5%BD-%E4%B8%96%E7%95%8C/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">你好 世界</span>
+                </a>
+              </span>
+            
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Horizon Blog Neo</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span>© 2024 Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
+        <span><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+
+
+<script type="text/javascript" src="/neo/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

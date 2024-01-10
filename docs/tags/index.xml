@@ -9,17 +9,17 @@
     <description>Recent content in Tags on Horizon Blog Neo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Oct 2022 17:24:38 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Apr 2023 17:11:21 +0000</lastBuildDate>
     
 	<atom:link href="https://horizonchaser.github.io/neo/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Java</title>
-      <link>https://horizonchaser.github.io/neo/tags/java/</link>
-      <pubDate>Fri, 07 Oct 2022 17:24:38 +0000</pubDate>
+      <title>Linux</title>
+      <link>https://horizonchaser.github.io/neo/tags/linux/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
       
-      <guid>https://horizonchaser.github.io/neo/tags/java/</guid>
+      <guid>https://horizonchaser.github.io/neo/tags/linux/</guid>
       <description>
         
           
@@ -35,11 +35,11 @@
     </item>
     
     <item>
-      <title>多线程</title>
-      <link>https://horizonchaser.github.io/neo/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
-      <pubDate>Fri, 07 Oct 2022 17:24:38 +0000</pubDate>
+      <title>NAS</title>
+      <link>https://horizonchaser.github.io/neo/tags/nas/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
       
-      <guid>https://horizonchaser.github.io/neo/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <guid>https://horizonchaser.github.io/neo/tags/nas/</guid>
       <description>
         
           
@@ -55,11 +55,51 @@
     </item>
     
     <item>
-      <title>线程池</title>
-      <link>https://horizonchaser.github.io/neo/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
-      <pubDate>Fri, 07 Oct 2022 17:24:38 +0000</pubDate>
+      <title>Server</title>
+      <link>https://horizonchaser.github.io/neo/tags/server/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
       
-      <guid>https://horizonchaser.github.io/neo/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <guid>https://horizonchaser.github.io/neo/tags/server/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://horizonchaser.github.io/neo/tags/ubuntu/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
+      
+      <guid>https://horizonchaser.github.io/neo/tags/ubuntu/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>捡垃圾</title>
+      <link>https://horizonchaser.github.io/neo/tags/%E6%8D%A1%E5%9E%83%E5%9C%BE/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
+      
+      <guid>https://horizonchaser.github.io/neo/tags/%E6%8D%A1%E5%9E%83%E5%9C%BE/</guid>
       <description>
         
           

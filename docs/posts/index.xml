@@ -9,17 +9,17 @@
     <description>Recent content in Posts on Horizon Blog Neo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 10 Jan 2024 18:41:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 22:05:36 +0800</lastBuildDate>
     
 	<atom:link href="https://horizonchaser.github.io/neo/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>https://horizonchaser.github.io/neo/posts/test/</link>
-      <pubDate>Wed, 10 Jan 2024 18:41:12 +0800</pubDate>
+      <title>你好 世界</title>
+      <link>https://horizonchaser.github.io/neo/posts/%E4%BD%A0%E5%A5%BD-%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Wed, 10 Jan 2024 22:05:36 +0800</pubDate>
       
-      <guid>https://horizonchaser.github.io/neo/posts/test/</guid>
+      <guid>https://horizonchaser.github.io/neo/posts/%E4%BD%A0%E5%A5%BD-%E4%B8%96%E7%95%8C/</guid>
       <description>
         
           
@@ -28,18 +28,18 @@
         
         
         
-          Test#This is a test post.
+          Horizon Blog 的全新版本, 现正基于 Hugo 呈现.
           
         
         </description>
     </item>
     
     <item>
-      <title>Test5</title>
-      <link>https://horizonchaser.github.io/neo/posts/test-%E5%89%AF%E6%9C%AC/</link>
-      <pubDate>Wed, 10 Jan 2024 18:41:12 +0800</pubDate>
+      <title>搭建一台 NAS</title>
+      <link>https://horizonchaser.github.io/neo/posts/%E6%90%AD%E5%BB%BA%E4%B8%80%E5%8F%B0-nas/</link>
+      <pubDate>Sun, 09 Apr 2023 17:11:21 +0000</pubDate>
       
-      <guid>https://horizonchaser.github.io/neo/posts/test-%E5%89%AF%E6%9C%AC/</guid>
+      <guid>https://horizonchaser.github.io/neo/posts/%E6%90%AD%E5%BB%BA%E4%B8%80%E5%8F%B0-nas/</guid>
       <description>
         
           
@@ -48,27 +48,7 @@
         
         
         
-          测试摘要测试摘要测试摘要测试摘要测试摘要测试摘要测试摘要测试摘要测试摘要测试摘要
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Java 线程池初探</title>
-      <link>https://horizonchaser.github.io/neo/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%88%9D%E6%8E%A2/</link>
-      <pubDate>Fri, 07 Oct 2022 17:24:38 +0000</pubDate>
-      
-      <guid>https://horizonchaser.github.io/neo/posts/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%88%9D%E6%8E%A2/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          简单研究了一下 Java 线程池的实现方式
+          捡垃圾搭建了一台 NAS, 顺便当作服务器. 这台机器最新的东西大概就是 CPU 风扇和电源了, 别的都是二手的.
           
         
         </description>
