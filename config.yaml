@@ -9,6 +9,8 @@ languageCode: zh-cn
 rssFullText: false
 # rssLimit: 10
 
+publishDir: docs
+
 theme: hugo-theme-hello-friend
 copyright: ''
 paginate: 10
