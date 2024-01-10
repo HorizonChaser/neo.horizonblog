@@ -15,6 +15,46 @@
     
     
     <item>
+      <title>友链</title>
+      <link>https://horizonchaser.github.io/neo/links/</link>
+      <pubDate>Wed, 10 Jan 2024 21:56:14 +0800</pubDate>
+      
+      <guid>https://horizonchaser.github.io/neo/links/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          友情链接 # Horizon Blog, Horizon Blog 的第一个版本 (仍然在更新哦) 星野玲的博客
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>About Horizon</title>
+      <link>https://horizonchaser.github.io/neo/about/</link>
+      <pubDate>Wed, 10 Jan 2024 19:37:47 +0800</pubDate>
+      
+      <guid>https://horizonchaser.github.io/neo/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          这里是 Horizon 的新博客, 采用 Hugo 构建. 原博客在这里, 采用的是 Hexo 构建. Horizon 的博客都支持 RSS 哦, 可以 Follow 一下. 目前支持的语言: 中文 (Native), 英文 (Stable), 日语 (Experimental) Horizon 的 GPG 公钥, 最
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Test</title>
       <link>https://horizonchaser.github.io/neo/posts/test/</link>
       <pubDate>Wed, 10 Jan 2024 18:41:12 +0800</pubDate>
