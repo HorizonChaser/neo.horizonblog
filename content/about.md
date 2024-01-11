@@ -4,11 +4,11 @@ date = 2024-01-10T19:37:47+08:00
 draft = false
 +++
 
-这里是 Horizon 的新博客, 采用 [Hugo](https://gohugo.io/) 构建. 原博客在[这里](https://horizonchaser.github.io/), 采用的是 [Hexo](https://hexo.io/zh-cn/) 构建.
+这里是 Horizon 的新博客, 采用 [Hugo](https://gohugo.io/) 基于 GitHub Action 构建. 原博客在[这里](https://horizonchaser.github.io/), 采用的是 [Hexo](https://hexo.io/zh-cn/) 构建.
 
 Horizon 的博客**都**支持 RSS 哦, 可以 Follow 一下.
 
-目前支持的语言: 中文 (Native), 英文 (Stable), 日语 (Experimental)
+Horizon 目前支持的语言: 中文 (Native), 英文 (Release Stable), 日语 (Experimental -- Still In Development)
 
 如果没有特殊说明, 本博客的所有 Horizon 自身创作的内容基于 [`CC BY-NC-SA 4.0`](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en) 协议授权; 其余任何引用到的部分根据其原始授权协议授权.
 
