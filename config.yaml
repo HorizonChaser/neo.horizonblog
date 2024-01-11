@@ -11,7 +11,7 @@ rssFullText: false
 
 publishDir: docs
 
-theme: hugo-theme-hello-friend
+theme: hello-friend
 copyright: ''
 paginate: 10
 enableGitInfo: true
