@@ -54,7 +54,7 @@ horizon@horizonpi-r1plus-lts:~$ sudo i2cdetect -y 0
 70: -- -- -- -- -- -- -- 77
 ```
 
-如果你看到的是在 `0x18` 的位置上有 `UU`, 说明你选择了错误的 I2C 接口, 或者没有正确启用它.
+**如果你看到的是在 `0x18` 的位置上有 `UU`, 说明你选择了错误的 I2C 接口, 或者没有正确启用 I2C (对于这块板子, 你应当能在 `/dev/` 下看到两个 I2C 设备, 但只有 0 号是可使用的).**
 
 或者, 此时运行 `gpio readall` (**先编译 WiringOP !**), 应该看到如下:
 
@@ -202,7 +202,7 @@ while True:
     time.sleep(0.5)
 ```
 
-代码来自 [这里](https://f1atb.fr/index.php/2020/10/04/bmp180-and-orange-pi-zero/). 如果没啥问题, 应该是这样的
+代码来自 [这里](https://f1atb.fr/index.php/2020/10/04/bmp180-and-orange-pi-zero/). 虽然很长, 但大部分内容都是在处理 BMP180 给出的数据; 从 I2C 读数据只有很少一点. 如果没啥问题, 应该是这样的
 
 ```bash
 horizon@horizonpi-r1plus-lts:~$ sudo python3 bmp.py
