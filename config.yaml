@@ -39,7 +39,7 @@ languages:
     params:
       logo:
         logoText: Horizon Blog Neo
-        logoHomeLink: /
+        logoHomeLink: /neo
 
     menu:
       main:
