@@ -9,8 +9,6 @@ draft = false
 
 这篇文章已经咕咕咕好几天了, ~~绝对不是因为幻兽帕鲁太好玩了什么的 (捂脸~~
 
-不过还是得说, DRMFree 的厂家都是好厂家 (
-
 不过至少现在是开始写了, 大概
 
 ## 关于 HoriOS Project
@@ -91,7 +89,7 @@ typedef struct _EFI_SIMPLE_TEXT_INPUT_PROTOCOL {
 } EFI_SIMPLE_TEXT_INPUT_PROTOCOL;
 ```
 
-`ReadKeyStroke` 函数可以让我们获得在按下一个按键时的输入, 不过它是非阻塞的. 它的参数是一个 `EFI_INPUT_KEY` 类型的指针, 定义如下:
+`ReadKeyStroke` 函数可以让我们获得在按下一个按键时的输入, 不过它是非阻塞的, 在没有按键按下的时候会返回 `EFI_NOT_READY`, 反之返回的是 `EFI_SUCCESS` (值为 0). 它通过一个 `EFI_INPUT_KEY` 类型的指针参数传回按键值, 定义如下:
 
 ```c
 struct EFI_INPUT_KEY {
@@ -102,4 +100,16 @@ struct EFI_INPUT_KEY {
 
 可以看到输入值分为了两部分, `ScanCode` 对应那些不在 Unicode 范围内的按键, 比如 Esc 键什么的, 当输入值为 Unicode 范围内时其值为零; 反之对 `UnicodeChar` 同理.
 
-有一个细节需要注意, UEFI 中的输入默认是不会回显的, 也就是说如果程序不主动输出, 用户是看不到自己输入的. 因此如果我们不主动进行回显, 用户可能会感到非常困惑.
+有一个细节需要注意, UEFI 中的输入默认不会回显, 也就是说如果程序不主动输出, 用户看不到自己输入. 因此如果在我们的 Shell 中不主动进行回显, 用户可能会非常困惑.
+
+### Shell: REPL
+
+> REPL: Read, Evaluate, Print Loop, 即"读取, 求值, 打印"的循环
+
+简单起见, 我们的 Shell 本质上就是一个大的 (无限) 循环.
+
+1. 读取用户的按键, 回显到屏幕上, 直到用户按下回车键, 完成一条输入
+2. 解析输入内容, 然后执行对应的操作
+3. 打印操作的结果 (如果有的话)
+4. 回到读取的状态 1
+
